@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1527"/>
+      <stop offset="100%" stop-color="#161b2e"/>
+    </linearGradient>
+    <linearGradient id="fireGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="50%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+    <linearGradient id="maskGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0.6"/>
+    </linearGradient>
+    <pattern id="gridPattern1" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad1)"/>
+  <rect width="800" height="450" fill="url(#gridPattern1)"/>
+  
+  <!-- Terrain Contours / Thermal overlay -->
+  <path d="M0,320 Q200,260 400,300 T800,280 L800,450 L0,450 Z" fill="#080c14" opacity="0.8"/>
+  <path d="M0,360 Q260,310 520,340 T800,330 L800,450 L0,450 Z" fill="#05070c" opacity="0.9"/>
+  
+  <!-- Segmentation Mask Shapes (Wildfire Detection Area) -->
+  <path d="M 280,240 Q 320,180 370,190 T 460,220 T 520,290 T 440,320 T 330,300 Z" fill="url(#maskGrad)" stroke="#a855f7" stroke-width="2" stroke-dasharray="6,4"/>
+  <path d="M 330,230 Q 360,195 400,205 T 450,240 T 420,280 T 360,270 Z" fill="url(#fireGrad)" opacity="0.75" filter="drop-shadow(0px 0px 15px rgba(249,115,22,0.6))"/>
+  
+  <!-- Feature Map Grid Overlay -->
+  <g stroke="#38bdf8" stroke-width="1" opacity="0.3">
+    <rect x="240" y="160" width="320" height="180" fill="none" stroke-dasharray="4,4"/>
+    <!-- Bounding Box Corners -->
+    <path d="M 230,170 L 230,150 L 250,150" fill="none" stroke="#38bdf8" stroke-width="2.5" opacity="0.9"/>
+    <path d="M 570,170 L 570,150 L 550,150" fill="none" stroke="#38bdf8" stroke-width="2.5" opacity="0.9"/>
+    <path d="M 230,330 L 230,350 L 250,350" fill="none" stroke="#38bdf8" stroke-width="2.5" opacity="0.9"/>
+    <path d="M 570,330 L 570,350 L 550,350" fill="none" stroke="#38bdf8" stroke-width="2.5" opacity="0.9"/>
+  </g>
+  
+  <!-- Neural Attention / Grad-CAM Heatmap indicators -->
+  <circle cx="390" cy="235" r="45" fill="#f43f5e" opacity="0.25" filter="blur(10px)"/>
+  <circle cx="390" cy="235" r="22" fill="#fbbf24" opacity="0.4" filter="blur(5px)"/>
+  
+  <!-- UI Badge Overlay -->
+  <rect x="30" y="30" width="220" height="34" rx="8" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(255, 255, 255, 0.1)"/>
+  <circle cx="48" cy="47" r="5" fill="#ef4444"/>
+  <text x="64" y="52" fill="#e2e8f0" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="12" font-weight="600" letter-spacing="0.5">U-Net++ • SegFormer • SmolVLM</text>
+  
+  <rect x="610" y="30" width="160" height="34" rx="8" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(56, 189, 248, 0.3)"/>
+  <text x="690" y="52" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600" text-anchor="middle">Grad-CAM Overlay</text>
+  
+  <text x="400" y="415" fill="#64748b" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="13" text-anchor="middle">Wildfire Semantic Segmentation &amp; Visual Analytics Architecture</text>
+</svg>

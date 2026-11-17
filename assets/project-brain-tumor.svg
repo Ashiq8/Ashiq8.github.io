@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c1222"/>
+      <stop offset="100%" stop-color="#141829"/>
+    </linearGradient>
+    <linearGradient id="mriGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#818cf8" stop-opacity="0.1"/>
+    </linearGradient>
+    <radialGradient id="lesionGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f43f5e" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#e11d48" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#881337" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="gridPattern2" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bgGrad2)"/>
+  <rect width="800" height="450" fill="url(#gridPattern2)"/>
+
+  <!-- Scanning Ring -->
+  <circle cx="400" cy="225" r="160" fill="none" stroke="#1e293b" stroke-width="2"/>
+  <circle cx="400" cy="225" r="140" fill="none" stroke="rgba(56, 189, 248, 0.2)" stroke-width="1" stroke-dasharray="6,4"/>
+  <circle cx="400" cy="225" r="120" fill="url(#mriGlow)"/>
+
+  <!-- Brain Hemisphere Contours (Stylized Medical Visualization) -->
+  <!-- Left Hemisphere -->
+  <path d="M 390,130 C 330,130 290,170 290,225 C 290,270 330,310 370,320 C 385,324 390,300 390,225 Z" 
+        fill="rgba(30, 41, 59, 0.7)" stroke="#38bdf8" stroke-width="2" opacity="0.85"/>
+  <!-- Right Hemisphere with detected anomaly -->
+  <path d="M 410,130 C 470,130 510,170 510,225 C 510,270 470,310 430,320 C 415,324 410,300 410,225 Z" 
+        fill="rgba(30, 41, 59, 0.7)" stroke="#38bdf8" stroke-width="2" opacity="0.85"/>
+
+  <!-- Inner sulci & gyri stylization -->
+  <path d="M 320,180 Q 360,195 340,240 T 360,290" fill="none" stroke="#60a5fa" stroke-width="1.5" opacity="0.4"/>
+  <path d="M 480,180 Q 440,195 460,240 T 440,290" fill="none" stroke="#60a5fa" stroke-width="1.5" opacity="0.4"/>
+
+  <!-- Detected Lesion Area -->
+  <circle cx="455" cy="215" r="28" fill="url(#lesionGlow)"/>
+  <circle cx="455" cy="215" r="28" fill="none" stroke="#fb7185" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <circle cx="455" cy="215" r="5" fill="#ffffff" opacity="0.9"/>
+
+  <!-- Targeting HUD / Crosshair -->
+  <line x1="420" y1="215" x2="490" y2="215" stroke="#f43f5e" stroke-width="1.2" opacity="0.7"/>
+  <line x1="455" y1="180" x2="455" y2="250" stroke="#f43f5e" stroke-width="1.2" opacity="0.7"/>
+  <circle cx="455" cy="215" r="38" fill="none" stroke="#f43f5e" stroke-width="1" stroke-dasharray="2,4" opacity="0.8"/>
+
+  <!-- Medical Metadata UI Panels -->
+  <rect x="30" y="30" width="220" height="34" rx="8" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(255, 255, 255, 0.1)"/>
+  <circle cx="48" cy="47" r="5" fill="#38bdf8"/>
+  <text x="64" y="52" fill="#e2e8f0" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="12" font-weight="600">DICOM / NIfTI Pipeline</text>
+
+  <rect x="590" y="30" width="180" height="34" rx="8" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(244, 63, 94, 0.3)"/>
+  <text x="680" y="52" fill="#fb7185" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600" text-anchor="middle">Segmentation Conf: High</text>
+
+  <text x="400" y="415" fill="#64748b" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="13" text-anchor="middle">MRI Preprocessing &amp; Deep Learning Brain Tumor Detection Pipeline</text>
+</svg>

@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e1322"/>
+      <stop offset="100%" stop-color="#141a2f"/>
+    </linearGradient>
+    <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <pattern id="gridPattern3" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bgGrad3)"/>
+  <rect width="800" height="450" fill="url(#gridPattern3)"/>
+
+  <!-- Left: Audio Waveform input -->
+  <g transform="translate(60, 150)">
+    <rect width="280" height="150" rx="12" fill="rgba(15, 23, 42, 0.8)" stroke="rgba(56, 189, 248, 0.25)" stroke-width="1.5"/>
+    <text x="20" y="32" fill="#38bdf8" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">INPUT: Voice / Natural Language</text>
+    
+    <!-- Audio Wave Bars -->
+    <g fill="url(#waveGrad)">
+      <rect x="25" y="70" width="5" height="24" rx="2"/>
+      <rect x="35" y="58" width="5" height="48" rx="2"/>
+      <rect x="45" y="65" width="5" height="34" rx="2"/>
+      <rect x="55" y="45" width="5" height="74" rx="2"/>
+      <rect x="65" y="55" width="5" height="54" rx="2"/>
+      <rect x="75" y="40" width="5" height="84" rx="2"/>
+      <rect x="85" y="60" width="5" height="44" rx="2"/>
+      <rect x="95" y="50" width="5" height="64" rx="2"/>
+      <rect x="105" y="68" width="5" height="28" rx="2"/>
+      <rect x="115" y="42" width="5" height="80" rx="2"/>
+      <rect x="125" y="54" width="5" height="56" rx="2"/>
+      <rect x="135" y="64" width="5" height="36" rx="2"/>
+      <rect x="145" y="48" width="5" height="68" rx="2"/>
+      <rect x="155" y="56" width="5" height="52" rx="2"/>
+      <rect x="165" y="72" width="5" height="20" rx="2"/>
+    </g>
+    
+    <text x="25" y="132" fill="#94a3b8" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="12" font-style="italic">"Show top customers with orders &gt; $500"</text>
+  </g>
+
+  <!-- Arrow / Transformation Node -->
+  <g transform="translate(365, 205)">
+    <circle cx="20" cy="20" r="22" fill="#1e293b" stroke="#818cf8" stroke-width="1.5"/>
+    <path d="M 14,20 L 26,20 M 21,15 L 26,20 L 21,25" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="20" y="-8" fill="#818cf8" font-family="'JetBrains Mono', monospace" font-size="11" text-anchor="middle">AI PARSER</text>
+  </g>
+
+  <!-- Right: SQL Terminal Output -->
+  <g transform="translate(430, 140)">
+    <rect width="310" height="170" rx="12" fill="#090d16" stroke="rgba(192, 132, 252, 0.3)" stroke-width="1.5"/>
+    <!-- Terminal Header dots -->
+    <circle cx="20" cy="18" r="4" fill="#ef4444"/>
+    <circle cx="34" cy="18" r="4" fill="#f59e0b"/>
+    <circle cx="48" cy="18" r="4" fill="#10b981"/>
+    <text x="65" y="22" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="11">sqlite_exec.sql</text>
+
+    <!-- Code Lines -->
+    <text x="20" y="55" fill="#c084fc" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">SELECT <tspan fill="#e2e8f0">c.name, SUM(o.total)</tspan></text>
+    <text x="20" y="80" fill="#c084fc" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">FROM <tspan fill="#38bdf8">customers c</tspan></text>
+    <text x="20" y="105" fill="#c084fc" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">JOIN <tspan fill="#38bdf8">orders o</tspan> <tspan fill="#94a3b8">ON c.id = o.user_id</tspan></text>
+    <text x="20" y="130" fill="#c084fc" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700">GROUP BY <tspan fill="#e2e8f0">c.id</tspan> <tspan fill="#c084fc">HAVING</tspan> <tspan fill="#e2e8f0">SUM(o.total) &gt; 500;</tspan></text>
+    <rect x="20" y="148" width="6" height="12" fill="#38bdf8"/>
+  </g>
+
+  <!-- Badge Top -->
+  <rect x="30" y="30" width="230" height="34" rx="8" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(255, 255, 255, 0.1)"/>
+  <circle cx="48" cy="47" r="5" fill="#a855f7"/>
+  <text x="64" y="52" fill="#e2e8f0" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="12" font-weight="600">NLP • Speech-to-SQL Engine</text>
+
+  <text x="400" y="415" fill="#64748b" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="13" text-anchor="middle">SpeakQL: Natural Voice &amp; Speech-to-Database Query Synthesis</text>
+</svg>
